@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daNiN SecRoom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='danin_logo.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div id="header">
+        <h1>daNiN SecRoom</h1>
+    </div>
+    <div id="join-container">
+        <label for="code-input"><!--Enter Code:--></label>
+        <input type="text" id="code-input" placeholder="Enter code">
+        <br><br>
+        <label for="username-input"><!--Enter Username:--></label>
+        <input type="text" id="username-input" placeholder="Enter username">
+        <br><br>
+        <button id="join-button" onclick="joinChat()">Join Chat</button>
+    </div>
+    <div id="chat-container" style="display:none;">
+        <div id="messages"></div>
+        <div id="message-input-container">
+        <!-- For PC (Medium size screens and larger) -->
+        <button id="leave-button" onclick="leaveSession()" class="btn btn-danger btn-circle btn-xl d-none d-md-inline-block">Leave Session</button>
+        
+        <!-- For Mobile (Small screens) -->
+        <button id="leave-button-mobile" onclick="leaveSession()" class="btn btn-danger btn-circle btn-xl d-inline-block d-md-none">&#10006;</button>          
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="send-button" onclick="sendMessage()">&#x1F680;</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Add this script at the end of the body section
+    
+        // Function to check if the device is a mobile device
+        function isMobileDevice() {
+            return window.innerWidth <= 767; // Adjust the breakpoint as needed
+        }
+    
+        // Function to toggle the visibility of the leave button based on the device
+        function toggleLeaveButton() {
+            var leaveButton = document.getElementById('leave-button');
+            var leaveButtonMobile = document.getElementById('leave-button-mobile');
+    
+            if (isMobileDevice()) {
+                leaveButton.style.display = 'none';
+                leaveButtonMobile.style.display = 'inline-block';
+            } else {
+                leaveButton.style.display = 'inline-block';
+                leaveButtonMobile.style.display = 'none';
+            }
+        }
+    
+        // Call the function on page load and window resize
+        window.onload = toggleLeaveButton;
+        window.onresize = toggleLeaveButton;
+    </script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

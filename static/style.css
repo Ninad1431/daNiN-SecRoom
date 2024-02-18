@@ -1,0 +1,231 @@
+/* static/style.css */
+body {
+    background-color: #292b2f; /* Dark greyish background */
+    color: #fff; /* White text */
+    font-family: 'Arial', sans-serif; /* Choose your desired font-family */
+    margin: 0;
+    border-radius: 10px; /* Add rounded corners to the entire body */
+    display: flex;
+    flex-direction: column; /* Stack children in a column */
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+#header {
+    background-color: #1c1e22; /* Darker grey for header */
+    padding: 10px;
+    text-align: center;
+    color: #61dafb; /* Techie blue color */
+    font-size: 16px; /* Adjust the font size */
+    font-family: 'Roboto', sans-serif; /* Choose a professional font-family */
+    /* position: fixed; */
+    /* width: 100%; */
+    top: 0;
+    z-index: 1000; /* Ensure it's above other elements */
+    animation: fadeInDown 0.5s ease-out; /* Add fade-in animation */
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#header h1 {
+    font-size: 2em; /* Adjust the size as needed */
+    background: linear-gradient(45deg, #ffcc00, #ff6666, #ffcc00); /* Add more color stops as needed */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s linear infinite; /* Adjust the animation duration as needed */
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+#join-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+    margin: 75px; /* Add some margin */
+}
+
+#code-input,
+#username-input {
+    width: 300px;
+    padding: 15px;
+    margin: 15px;
+    border: 2px solid #555; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #444; /* Darker background color */
+    color: #fff; /* White text color */
+    font-size: 15px; /* Adjust font size */
+}
+
+#join-button {
+    background-color: #4CAF50; /* Green color for the button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 15px 30px; /* Adjust padding as needed */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    font-size: 15px;
+}
+
+#join-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#chat-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Adjust the width as needed */
+    max-width: 800px; /* Limit the maximum width for larger screens */
+    margin-bottom: 20px; /* Add some margin from the bottom */
+    border-radius: 15px; /* Add rounded corners to the chat container */
+}
+
+#messages {
+    max-height: 320px; /* Adjust the maximum height for the chat box */
+    overflow-y: auto;
+    border: 1px solid #333; /* Darker border for the chat box */
+    background-color: #2d2d2d; /* Dark background color for the chat box */
+    padding: 10px;
+    border-radius: 5px; /* Add rounded corners to the chat box */
+    font-family: 'Courier New', monospace; /* Use a monospaced font for a terminal-like feel */
+    line-height: 1.5; /* Increase line height for better readability */
+}
+
+#message-input-container {
+    display: flex; /* Use flexbox to arrange items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 10px;
+}
+
+#message-input {
+    flex: 1; /* Expand the input to take remaining space */
+    width: calc(100% - 20px); /* Adjust the width of the input box */
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid #61dafb; /* Techie blue color for border */
+    border-radius: 5px; /* Add rounded corners to the message input */
+    color: #333; /* Dark text color */
+    font-size: 14px; /* Adjust font size */
+}
+
+#send-button {
+    width: 40px; /* Set equal width and height for a perfect circle */
+    height: 40px;
+    background-color: #4CAF50; /* Green color for the send button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer;
+    margin-left: 10px; /* Add space between the input and button */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    line-height: 40px; /* Center the icon vertically */
+    text-align: center; /* Center the icon horizontally */
+    font-size: 20px; /* Increase the font size of the icon */
+}
+
+#send-button:hover {
+    background-color: #3ca041; /* Darker green on hover */
+}
+
+#leave-button {
+    background-color: #d9534f; /* Red color for the leave button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+#leave-button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+#leave-button-mobile {
+    width: 40px; /* Set equal width and height for a perfect circle */
+    height: 40px;
+    background-color: #d9534f; /* Red color for the button on mobile */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    line-height: 40px; /* Center the icon vertically */
+    text-align: center; /* Center the icon horizontally */
+    font-size: 14px; /* Increase the font size of the icon */
+
+}
+
+#leave-button-mobile:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+/* Add any additional styling as needed */
+
+/* ... (other styles) ... */
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    /* Add mobile-specific styles here */
+#code-input,
+#username-input {
+    width: 180px;
+    padding: 15px;
+    margin: 15px;
+    border: 2px solid #555; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #444; /* Darker background color */
+    color: #fff; /* White text color */
+    font-size: 15px; /* Adjust font size */
+}
+
+#code-input,
+#username-input,
+#join-button {
+    width: 80%; /* Adjust the width as needed for better mobile view */
+    margin: 10px auto; /* Center and provide spacing */
+  }
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+#join-container {
+    text-align: center;
+    margin-top: 200px; /* Add margin-top to move the container down */
+}
+}
+
+@media only screen and (min-height: 800px) {
+    /* Styles for viewports with a height between 601px and 800px (inclusive) */
+    #messages {
+        max-height: 500px; /* Adjust the maximum height for the chat box */
+    }
+  }
